@@ -51,7 +51,7 @@ Hacemos saltar la araña C del mismo modo que nuestro jugador pero quitando la c
 ![tarea_05](./gif/II_Exam01_gif05.gif)  
 ***Scripts:*** bedCollision.cs, moveBed.cs & jumpChair.cs  
   
-E
+Mediante el primero de estos scripts podemos detectar si el jugador ha colisionado con un objeto con el tag 'Bed', si este es el caso, envia el mensaje bedTime() a todos quienes lo escuchan. Al recibir esto los otros dos scripts toman las acciones apropiadas, para la silla se activa un unico salto cada vez que se produce esta colision de la misma forma que hemos visto anteriormente. En cambio, las camas no pararan de mover. El script es identico al de la araña B pero solo se activa una vez producido la colision y ahora en vez de dos puntos aleatorios son dos puntos 1m a la izquierda de la cama y 1m a la derecha.  
 
 ## Tarea 06
 ***Scripts:*** -  
@@ -65,10 +65,12 @@ para inicializar las funcionalidades del cardboard.
 ![tarea_07](./gif/II_Exam01_gif07.gif)  
 ***Scripts:*** spiderGaze.cs & cameraMovement.cs  
   
-E
+Para la camara cogemos el input del raton en el eje X e Y, y rotamos la camara con los valores proporcionados con ayuda de transform.eulerAngles (notar que se tiene que invertir el valor del inputY). También cabe mencionar que la rapidez con la que se mueve la camara lo podemos cambiar con 'sensitivity', y además usamos Cursor.LockState para que el puntero se quede bloqueado dentro del prototipo al ejecutarlo.  
+  
+Para matar a las arañas con la mirada del jugador usamos onPointerEnter() y onPointerExit() para coordinar con la camara del jugador que tiene el script necesario para manejarlos. Si el jugador pone la mirada sobre una araña (las cuales todas tienen el script), se activara 'count' (bool). Si esta esta a true, un contador empezara a contar en update hasta llegar a cierto valor (count se desactiva si el jugador quita la mirada). Cuando este contador supere el umbral el objeto se transporta 50m debajo del area de juego, de este modo onPointerExit() se activa sin problemas. Cuando se activa esta comprueba de nuevo que se haya superado el umbral (que como sabemos es verdadero) y esto destruye el GameObject. Todo el rato actualizamos el canvas con texto informativo sobre el porcentaje del contador frente al umbral, la araña observada y un mensaje especial si se destruye el objeto.  
 
 ## Modificacion
 ![modificacion](./gif/II_Exam01_gifmod.gif)  
 ***Scripts:*** gazeSpiderA.cs, growSpiderB.cs & teleportToBed.cs  
   
-E
+El primer de estos scripts emplea los mismos principios que el apartado anterior con el onPointerEnter(), mandando un mensaje spiderTime() a quienes lo escuchan cuando el jugador lo mira (obviamente el script solo esta en la artaña A). Una vez hecho esto, la araña B aumentara de tamaño gracias a la propiedad transform.localScale (podemos cambiar el aumento de tamaño con la variable growSize). Luego las arañas A y C cambian de posicion a 2 unidades por encima de una cama (este Transform se le pasa al script por lo que ambas se ponen encima de distintas camas). Todos estos cambios solo produciendose al recibir el mensaje spiderTime().  
