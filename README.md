@@ -7,8 +7,8 @@
 Primera prueba de la asignatura basado en realizar varias transformaciones de posición para 
 demostrar un control adecuado de las funcionalidades básicas de unity, programación basado en eventos, 
 trabajo con canvas y la posterior integración de funcionalidades de cardboard. Todo lo descrito a continuación 
-sera en referencia a la segunda entrega ya que mucha cambia de la primera a ella, como por ejemplo la escena primaria. 
-Siendo esta 'Scenes/Exam01_Test02' en la segunda entrega (empece organizando ls escana de 0 para tener más control sobre ella). 
+sera en referencia a la segunda entrega ya que mucho cambia de la primera a ella, como por ejemplo la escena primaria. 
+Siendo esta 'Scenes/Exam01_Test02' en la segunda entrega (empece organizando la escena de 0 para tener más control sobre ella). 
 Esto es debido a lo poco que conseguí desarrollar la primera semana y la poca optimización de esta.  
   
 *Los scripts de la entrega01 no los guarde en mi ordenador de casa, pero todos los cambios en los scripts usados en aquel han sido comentados en el propio código   
@@ -23,7 +23,7 @@ quite la luz de punto que viene por defecto y modifique los parámetros de la lu
 de la demoScene perteneciente al Horror Asset Pack (también agrupe las luces internas dentro de un empty llamado Lighting), todas 
 las props (sillas, mesas, ...) como la propia habitación fueron agrupados en un empty llamado Environment. También cabe mencionar que movi la camara a la esquina de la habitación. Para ver los assets que utilice y sus posiciones iniciales, puede observar la imagen incluida por arriba.  
   
-*Lo acabado en '_Cardboard' fue de la escena Cardboard original  
+*Lo acabado en '_Cardboard' es lo hecho en preparación para la primera sesión y no es relevante para el trabajo expuesto a continuación  
 
 ## Tarea 02  
 ![tarea_02](./gif/II_Exam01_gif02.gif)   
@@ -71,8 +71,8 @@ Para la camara cogemos el input del raton en el eje X e Y, y rotamos la camara c
   
 Para matar a las arañas con la mirada del jugador usamos onPointerEnter() y onPointerExit() para coordinar con la camara del jugador que tiene el script necesario para manejarlos. Si el jugador pone la mirada sobre una araña (las cuales todas tienen el script), se activara 'count' (bool). Si esta esta a true, un contador empezara a contar en update hasta llegar a cierto valor (count se desactiva si el jugador quita la mirada). Cuando este contador supere el umbral el objeto se transporta 50m debajo del area de juego, de este modo onPointerExit() se activa sin problemas. Cuando se activa esta comprueba de nuevo que se haya superado el umbral (que como sabemos es verdadero) y esto destruye el GameObject. Todo el rato actualizamos el canvas con texto informativo sobre el porcentaje del contador frente al umbral, la araña observada y un mensaje especial si se destruye el objeto.  
 
-## Modificacion
+## Modificación
 ![modificacion](./gif/II_Exam01_gifmod.gif)  
 ***Scripts:*** gazeSpiderA.cs, growSpiderB.cs & teleportToBed.cs  
   
-El primer de estos scripts emplea los mismos principios que el apartado anterior con el onPointerEnter(), mandando un mensaje spiderTime() a quienes lo escuchan cuando el jugador lo mira (obviamente el script solo esta en la artaña A). Una vez hecho esto, la araña B aumentara de tamaño gracias a la propiedad transform.localScale (podemos cambiar el aumento de tamaño con la variable growSize). Luego las arañas A y C cambian de posicion a 2 unidades por encima de una cama (este Transform se le pasa al script por lo que ambas se ponen encima de distintas camas). Todos estos cambios solo produciendose al recibir el mensaje spiderTime().  
+El primer de estos scripts emplea los mismos principios que el apartado anterior con el onPointerEnter(), mandando un mensaje spiderTime() a quienes lo escuchan cuando el jugador lo observa (obviamente el script solo esta en la araña A). Una vez hecho esto, la araña B aumentara de tamaño gracias a la propiedad transform.localScale (podemos cambiar el aumento de tamaño con la variable growSize). Luego las arañas A y C cambian de posicion a 2 unidades por encima de una cama (este Transform se le pasa al script por lo que ambas se ponen encima de distintas camas). Todos estos cambios solo se producen al recibir el mensaje spiderTime().  
