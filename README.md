@@ -33,15 +33,21 @@ El script se agrego sobre el propio jugador, en cuanto a las arañas les puse un
 ## Tarea 04
 ![tarea_04](./gifs/II_Exam01_gif04.gif)  
 ***Scripts:*** moveSpider01.cs, moveSpider02.cs & moveSpider03.cs  
-E
+Para la araña A usamos el primer script, el cual verifica mediante un bool toChair hacia que objeto moverse. Esta se deshabilita si se colisiona con el tag "Table" y se vuelve a habailitar cuando choca contra el tag "Chair". El propio movimiento se hace con un Translate hacia delante despues de un LookAt (velocidad determinada por speed).  
+  
+La araña B aplica este mismo principio (bool moveA) pero cambia de uno al otro en base a si su posicion coincide con su destino, no a traves de colisiones. Los puntos son generados aleatoriamente (con Random.Range) dentro del espacio disponible para la araña y omitiendo el eje Y. El movimiento se calcula con MoveTowards (determinando su velocidad con moveSpeed).  
+  
+Hacemos saltar la araña C del mismo modo que nuestro jugador pero quitando la condición de pulsar la tecla espacio, por lo que directamente hace el salto cuando colisiona con un objeto con el tag 'Ground' (con altura determinado por jumpHeight).  
+  
+*Todos los cambios de posición sin usar rigidbodies son multiplicados por Time.deltaTime
 
 ## Tarea 05
-![tarea_05](./img/II_Exam01_gif05.png)  
+![tarea_05](./img/II_Exam01_gif05.gif)  
 ***Scripts:*** bedCollision.cs, moveBed.cs & jumpChair.cs  
 E
 
 ## Tarea 06
-![tarea_06](./img/II_Exam01_gif06.png)  
+![tarea_06](./img/II_Exam01_gif06.gif)  
 ***Scripts:*** -  
 Partí del mismo proyecto utlizado para nuestras escenas cardboard de practica por lo que ya tenia el 
 proyecto configurado adecuadamente. Tambien cambie la camara de nuestra escena por la que tiene reticulo y 
@@ -49,11 +55,11 @@ las funcionalidades que nos permite esta. Ademas agregue un objeto 'Scene Manage
 para inicializar las funcionalidades del cardboard.  
 
 ## Tarea 07
-![tarea_07](./img/II_Exam01_gif07.png)  
+![tarea_07](./img/II_Exam01_gif07.gif)  
 ***Scripts:*** spiderGaze.cs & cameraMovement.cs  
 E
 
 ## Modificacion
-![modificacion](./img/II_Exam01_gifmodif.png)  
+![modificacion](./img/II_Exam01_gifmodif.gif)  
 ***Scripts:*** gazeSpiderA.cs, growSpiderB.cs & teleportToBed.cs  
 E
