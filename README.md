@@ -10,6 +10,8 @@ trabajo con canvas y la posterior integración de funcionalidades de cardboard. 
 sera en referencia a la segunda entrega ya que mucha cambia de la primera a ella, como por ejemplo la escena primaria. 
 Siendo esta 'Scenes/Exam01_Test02' en la segunda entrega (empece organizando ls escana de 0 para tener más control sobre ella). 
 Esto es debido a lo poco que conseguí desarrollar la primera semana y la poca optimización de esta.  
+  
+*Los scripts de la entrega01 no los guarde en mi ordenador de casa, pero todos los cambios en los scripts usados en aquel han sido comentados en el propio código   
 
 ## Tarea 01  
 ![tarea_01](./img/II_Exam01_img01.jpg)  
